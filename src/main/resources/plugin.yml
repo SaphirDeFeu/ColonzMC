@@ -1,0 +1,6 @@
+name: Colonz
+version: '1.0.0-1.21'
+main: io.github.saphirdefeu.colonz.Main
+api-version: '1.21'
+load: STARTUP
+author: SaphirDeFeu
