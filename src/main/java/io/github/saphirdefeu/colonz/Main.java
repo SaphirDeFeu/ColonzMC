@@ -1,16 +1,20 @@
 package io.github.saphirdefeu.colonz;
 
+import io.github.saphirdefeu.colonz.assets.Board;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 
 public final class Main extends JavaPlugin {
 
     private static File PLUGIN_DATA_FOLDER;
     private static JavaPlugin COLONZ_PLUGIN;
+
+    private static Collection<Board> boards;
 
     @Override
     public void onEnable() {
@@ -21,6 +25,9 @@ public final class Main extends JavaPlugin {
         Debug.log("Initializing ColonzMC");
 
         CommandFactory.registerCommands();
+        boards = Saves.getBoards();
+        if(boards == null) Debug.err("Could not retrieve board data - use ColonzMC at your own risk.");
+        if(boards == null) boards = Collections.emptyList();
 
         Debug.log("ColonzMC enabled");
     }
@@ -28,6 +35,8 @@ public final class Main extends JavaPlugin {
     @Override
     public void onDisable() {
         Debug.log("Disabling ColonzMC");
+        Debug.log("Saving data");
+        Saves.saveBoards(boards);
     }
 
     private int setupFiles() {
