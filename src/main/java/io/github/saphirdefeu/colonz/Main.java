@@ -59,4 +59,12 @@ public final class Main extends JavaPlugin {
     public static JavaPlugin getColonzPlugin() {
         return COLONZ_PLUGIN;
     }
+
+    public static Collection<Board> getBoards() {
+        return boards;
+    }
+
+    public static void setBoards(Collection<Board> boards) {
+        Main.boards = boards;
+    }
 }
