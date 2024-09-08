@@ -1,7 +1,5 @@
 package io.github.saphirdefeu.colonz;
 
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.format.NamedTextColor;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.PrintWriter;

@@ -22,8 +22,6 @@ public final class Main extends JavaPlugin {
         PLUGIN_DATA_FOLDER = this.getDataFolder();
         if(setupFiles() == 1) this.getServer().getPluginManager().disablePlugin(this);
 
-        Debug.log("Initializing ColonzMC");
-
         CommandFactory.registerCommands();
         boards = Saves.getBoards();
         if(boards == null) Debug.err("Could not retrieve board data - use ColonzMC at your own risk.");

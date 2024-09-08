@@ -28,7 +28,8 @@ public class Help implements BasicCommand {
     @Override
     public void execute(@NotNull CommandSourceStack stack, @NotNull String[] args) {
         String message = "<rainbow>[ColonzMC]</rainbow><br>" +
-                "<gold>Automates creation and playing of Colonz, a game made by SaphirDeFeu & sans_psaudo</gold>";
+                "<gold>Automates creation and playing of Colonz, a game made by SaphirDeFeu & sans_psaudo</gold><br>" +
+                "<yellow>/colonzboard <addlimit|create|list> [<args>]</yellow>";
 
         stack.getSender().sendRichMessage(message);
     }

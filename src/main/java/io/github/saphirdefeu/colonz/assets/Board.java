@@ -1,6 +1,8 @@
 package io.github.saphirdefeu.colonz.assets;
 
 import io.github.saphirdefeu.colonz.serialdata.SerialLocation;
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.Serial;
@@ -31,5 +33,13 @@ public class Board implements Serializable {
     public void addLimit(int x, int z) {
         SerialLocation loc = new SerialLocation(x, 0, z);
         limits.add(loc);
+    }
+
+    public boolean isPlayerOnLimit(@NotNull Player player) {
+        Location loc = player.getLocation();
+        int x = loc.getBlockX();
+        int z = loc.getBlockZ();
+        SerialLocation serialLocation = new SerialLocation(x, 0, z);
+        return this.limits.contains(serialLocation);
     }
 }
